@@ -215,7 +215,7 @@
   </head>
 
   <body>
-    <video class="video-bg" autoplay loop muted playsinline>
+    <video id="video-bg" class="video-bg" autoplay loop muted playsinline>
       <source
         src="https://cdn.glitch.global/654ce97a-80fa-46e0-997c-4d9b42bf9617/4.mp4"
         type="video/mp4"
@@ -549,10 +549,10 @@
             100% LP Burnt
             <br />
             <br />
-            Ownership renounced
-            <br />
-            <br />
             1,010,101,010 Supply
+            <br />
+            <br />
+            Ownership renounced
           </p>
           <br />
         </div>
@@ -635,5 +635,22 @@
     numberSpin("scroll18");
     numberSpin("scroll19");
     numberSpin("scroll20");
+    
+    document.addEventListener("DOMContentLoaded", function () {
+      const video = document.getElementById("video-bg");
+
+      // Event listener to detect clicks anywhere on the page
+      document.body.addEventListener("click", function (event) {
+        // Check if the clicked element is not one of the buttons
+        if (!event.target.closest(".btn-binary, .btn-X, .btn-TG, .btn-DEX, .btn-CA, .btn-t0k")) {
+          // Toggle play/pause of the video
+          if (video.paused) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        }
+      });
+    });
   </script>
 </html>
