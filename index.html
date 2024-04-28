@@ -213,6 +213,52 @@
         font-size: 10px;
         text-shadow: 0px 2px 10px rgba(256,256,256,0.5);
       }
+      
+      #dexscreener-embed {
+        position: relative;
+        width: 90%;
+        padding-bottom: 125%;
+        left: 5%;       
+      }
+      @media (min-width: 1400px) {
+        #dexscreener-embed {
+          padding-bottom: 65%;
+        }
+      }
+      #dexscreener-embed iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border: 0;
+        filter: grayscale(100%);
+        box-shadow: 0 0px 10px rgba(256, 256, 256, 1);
+        border-radius: 10%;
+      }
+      
+      #uniswap-embed {
+        position: relative;
+        width: 90%;
+        padding-bottom: 125%;
+        left: 5%;       
+      }
+      @media (min-width: 1400px) {
+        #dexscreener-embed {
+          padding-bottom: 65%;
+        }
+      }
+      #uniswap-embed iframe {
+        position: absolute;
+        width: 50%;
+        height: 30%;
+        top: 50;
+        left: 25%;
+        border: 0;
+        filter: grayscale(100%);
+        box-shadow: 0 0px 10px rgba(256, 256, 256, 1);
+        border-radius: 10%;
+      }
     </style>
   </head>
 
@@ -542,6 +588,14 @@
         </div>
       </div>
 
+      <div id="dexscreener-embed">
+        <iframe src="https://dexscreener.com/ethereum/0x010101009B71345388E527B941da1B8d95eA5935?embed=1&theme=dark"></iframe>
+      </div>
+      
+      <div id="uniswap-embed">
+        <iframe src="https://app.uniswap.org/#/swap?outputCurrency=0x010101009B71345388E527B941da1B8d95eA5935&quot"></iframe>
+      </div>
+
       <div class="footer1">
         <div class="footer-content" id="token-details">
           <p>
@@ -640,12 +694,8 @@
     
     document.addEventListener("DOMContentLoaded", function () {
       const video = document.getElementById("video-bg");
-
-      // Event listener to detect clicks anywhere on the page
       document.body.addEventListener("click", function (event) {
-        // Check if the clicked element is not one of the buttons
         if (!event.target.closest(".btn-binary, .btn-X, .btn-TG, .btn-DEX, .btn-CA, .btn-t0k")) {
-          // Toggle play/pause of the video
           if (video.paused) {
             video.play();
           } else {
